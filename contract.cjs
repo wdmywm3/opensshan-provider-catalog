@@ -45,7 +45,7 @@ function validateDirectory(value) {
       }
     }
   }
-  check(ids.has("custom") && ids.has("anthropic"), "required fallback providers are missing");
+  check(ids.has("anthropic"), "required cloud provider is missing");
   check(Array.isArray(value.providerGroups) && value.providerGroups.length <= 500, "invalid provider groups");
   const aliases = new Set();
   for (const group of value.providerGroups) {
