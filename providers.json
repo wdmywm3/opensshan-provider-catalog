@@ -951,7 +951,7 @@
       "supportedApiFormats": [
         "openai_compatible"
       ],
-      "needsApiKey": true,
+      "needsApiKey": false,
       "websiteUrl": "https://docs.vllm.ai"
     },
     {
@@ -1047,7 +1047,7 @@
         "openai_responses",
         "gemini_native"
       ],
-      "needsApiKey": true,
+      "needsApiKey": false,
       "websiteUrl": ""
     }
   ],
