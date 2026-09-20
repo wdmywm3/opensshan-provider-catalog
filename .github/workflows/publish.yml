@@ -1,0 +1,100 @@
+name: Validate and publish provider directory
+on:
+  pull_request:
+  push:
+    branches: [main]
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: provider-directory-${{ github.ref }}
+  cancel-in-progress: false
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: node release.cjs --check
+  publish:
+    if: github.event_name != 'pull_request' && github.ref == 'refs/heads/main'
+    needs: validate
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Sign release
+        run: node release.cjs
+        env:
+          CATALOG_SIGNING_KEY: ${{ secrets.CATALOG_SIGNING_KEY }}
+          CATALOG_KEY_ID: catalog-release
+      - name: Publish catalog branch
+        shell: bash
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          gh auth setup-git
+          mkdir publish
+          git -C publish init
+          git -C publish remote add origin "https://github.com/${GITHUB_REPOSITORY}.git"
+          if git -C publish ls-remote --exit-code --heads origin catalog; then
+            git -C publish fetch --depth=1 origin catalog
+            git -C publish checkout -b catalog FETCH_HEAD
+          else
+            git -C publish checkout --orphan catalog
+          fi
+          node verify-release-order.cjs publish/directory.json dist/directory.json
+          cp dist/directory.json publish/directory.json
+          git -C publish config user.name 'Provider Catalog Publisher'
+          git -C publish config user.email 'provider-catalog@users.noreply.github.com'
+          git -C publish add directory.json
+          if ! git -C publish diff --cached --quiet; then
+            git -C publish commit -m 'Update provider directory'
+            git -C publish push origin HEAD:catalog
+          fi
+      - name: Mirror the same signed file to Gitee
+        if: vars.GITEE_REPOSITORY != ''
+        shell: bash
+        env:
+          GITEE_REPOSITORY: ${{ vars.GITEE_REPOSITORY }}
+          GITEE_USERNAME: ${{ secrets.GITEE_USERNAME }}
+          GITEE_TOKEN: ${{ secrets.GITEE_TOKEN }}
+        run: |
+          set -euo pipefail
+          test -n "$GITEE_USERNAME" && test -n "$GITEE_TOKEN"
+          [[ "$GITEE_REPOSITORY" =~ ^[A-Za-z0-9_.-]+/[A-Za-z0-9_.-]+$ ]]
+          cat > "$RUNNER_TEMP/catalog-askpass" <<'SCRIPT'
+          #!/bin/sh
+          case "$1" in
+            *Username*) printf '%s\n' "$GITEE_USERNAME" ;;
+            *) printf '%s\n' "$GITEE_TOKEN" ;;
+          esac
+          SCRIPT
+          chmod 700 "$RUNNER_TEMP/catalog-askpass"
+          export GIT_ASKPASS="$RUNNER_TEMP/catalog-askpass"
+          export GIT_TERMINAL_PROMPT=0
+          mkdir mirror
+          git -C mirror init
+          git -C mirror remote add origin "https://gitee.com/${GITEE_REPOSITORY}.git"
+          if git -C mirror ls-remote --exit-code --heads origin catalog; then
+            git -C mirror fetch --depth=1 origin catalog
+            git -C mirror checkout -b catalog FETCH_HEAD
+          else
+            git -C mirror checkout --orphan catalog
+          fi
+          node verify-release-order.cjs mirror/directory.json dist/directory.json
+          cp dist/directory.json mirror/directory.json
+          git -C mirror config user.name 'Provider Catalog Publisher'
+          git -C mirror config user.email 'provider-catalog@users.noreply.github.com'
+          git -C mirror add directory.json
+          if ! git -C mirror diff --cached --quiet; then
+            git -C mirror commit -m 'Mirror provider directory'
+            git -C mirror push origin HEAD:catalog
+          fi

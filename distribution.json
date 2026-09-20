@@ -1,0 +1,9 @@
+{
+  "sources": [
+    "https://raw.githubusercontent.com/wdmywm3/opensshan-provider-catalog/catalog/directory.json",
+    "https://gitee.com/wdmywm/opensshan-provider-catalog/raw/catalog/directory.json"
+  ],
+  "publicKeys": {
+    "catalog-release": "-----BEGIN PUBLIC KEY-----\nMCowBQYDK2VwAyEAsrM9pC+SfFyThx7b4LsHEck+HsYW3Mx8MRHxmFoAYYE=\n-----END PUBLIC KEY-----\n"
+  }
+}

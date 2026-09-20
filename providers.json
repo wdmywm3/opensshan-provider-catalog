@@ -1,0 +1,1116 @@
+{
+  "providers": [
+    {
+      "id": "anthropic",
+      "name": "Claude",
+      "category": "official",
+      "apiFormats": {
+        "anthropic_compatible": {
+          "baseUrl": "https://api.anthropic.com",
+          "defaultModels": {
+            "main": "claude-sonnet-4-20250514",
+            "haiku": "claude-haiku-4-5-20251001",
+            "sonnet": "claude-sonnet-4-20250514",
+            "opus": "claude-opus-4-20250514"
+          }
+        }
+      },
+      "defaultApiFormat": "anthropic_compatible",
+      "supportedApiFormats": [
+        "anthropic_compatible"
+      ],
+      "needsApiKey": true,
+      "websiteUrl": "https://console.anthropic.com",
+      "apiKeyUrl": "https://console.anthropic.com/settings/keys",
+      "featured": true
+    },
+    {
+      "id": "openai",
+      "name": "OpenAI",
+      "category": "official",
+      "apiFormats": {
+        "openai_compatible": {
+          "baseUrl": "https://api.openai.com",
+          "defaultModels": {
+            "main": "gpt-4o",
+            "haiku": "gpt-4o-mini",
+            "sonnet": "gpt-4o",
+            "opus": "o3"
+          }
+        }
+      },
+      "defaultApiFormat": "openai_compatible",
+      "supportedApiFormats": [
+        "openai_compatible"
+      ],
+      "needsApiKey": true,
+      "websiteUrl": "https://platform.openai.com",
+      "apiKeyUrl": "https://platform.openai.com/api-keys",
+      "featured": true
+    },
+    {
+      "id": "meta",
+      "name": "Meta",
+      "category": "official",
+      "apiFormats": {
+        "openai_compatible": {
+          "baseUrl": "https://api.meta.ai/v1",
+          "defaultModels": {
+            "main": "muse-spark-1.3",
+            "haiku": "muse-spark-1.3",
+            "sonnet": "muse-spark-1.3",
+            "opus": "muse-spark-1.3"
+          }
+        },
+        "anthropic_compatible": {
+          "baseUrl": "https://api.meta.ai",
+          "defaultModels": {
+            "main": "muse-spark-1.3",
+            "haiku": "muse-spark-1.3",
+            "sonnet": "muse-spark-1.3",
+            "opus": "muse-spark-1.3"
+          }
+        },
+        "openai_responses": {
+          "baseUrl": "https://api.meta.ai/v1",
+          "defaultModels": {
+            "main": "muse-spark-1.3",
+            "haiku": "muse-spark-1.3",
+            "sonnet": "muse-spark-1.3",
+            "opus": "muse-spark-1.3"
+          }
+        }
+      },
+      "modelDefaultsByModel": {
+        "muse-spark-1.2": {
+          "maxTokens": 131072,
+          "contextWindow": 1048576,
+          "imageEnabled": true,
+          "audioEnabled": true,
+          "videoEnabled": true,
+          "pdfEnabled": true,
+          "toolCallSupported": true,
+          "structuredOutputSupported": true
+        }
+      },
+      "defaultApiFormat": "openai_compatible",
+      "supportedApiFormats": [
+        "openai_compatible",
+        "anthropic_compatible",
+        "openai_responses"
+      ],
+      "needsApiKey": true,
+      "websiteUrl": "https://ai.developer.meta.com",
+      "featured": true,
+      "sources": [
+        "https://dev.meta.ai/docs/models",
+        "https://dev.meta.ai/docs/reasoning"
+      ],
+      "verifiedAt": "2026-09-20"
+    },
+    {
+      "id": "xai",
+      "name": "xAI",
+      "category": "official",
+      "apiFormats": {
+        "openai_compatible": {
+          "baseUrl": "https://api.x.ai/v1",
+          "defaultModels": {
+            "main": "grok-4.6",
+            "haiku": "grok-4.3",
+            "sonnet": "grok-4.6",
+            "opus": "grok-4.6"
+          }
+        }
+      },
+      "modelDefaultsByModel": {
+        "grok-4.6": {
+          "maxTokens": 500000,
+          "contextWindow": 500000,
+          "imageEnabled": true,
+          "pdfEnabled": true,
+          "toolCallSupported": true,
+          "structuredOutputSupported": true
+        }
+      },
+      "defaultApiFormat": "openai_compatible",
+      "supportedApiFormats": [
+        "openai_compatible"
+      ],
+      "needsApiKey": true,
+      "websiteUrl": "https://x.ai/api",
+      "apiKeyUrl": "https://console.x.ai",
+      "featured": true
+    },
+    {
+      "id": "codex",
+      "name": "Codex",
+      "category": "official",
+      "apiFormats": {
+        "openai_responses": {
+          "baseUrl": "https://chatgpt.com/backend-api/codex",
+          "defaultModels": {
+            "main": "gpt-6-astra",
+            "haiku": "gpt-5.6-luna",
+            "sonnet": "gpt-5.6-sol",
+            "opus": "gpt-6-astra"
+          }
+        }
+      },
+      "defaultApiFormat": "openai_responses",
+      "supportedApiFormats": [
+        "openai_responses"
+      ],
+      "modelDefaults": {
+        "maxTokens": 128000,
+        "thinkingEffort": "medium",
+        "thinkingMode": true,
+        "streamOutput": true,
+        "cacheEnabled": true,
+        "imageEnabled": true
+      },
+      "needsApiKey": false,
+      "websiteUrl": "https://chatgpt.com/codex",
+      "apiKeyUrl": "https://developers.openai.com/codex/enterprise/access-tokens",
+      "featured": true
+    },
+    {
+      "id": "gemini",
+      "name": "Gemini",
+      "category": "official",
+      "apiFormats": {
+        "gemini_native": {
+          "baseUrl": "https://generativelanguage.googleapis.com",
+          "defaultModels": {
+            "main": "gemini-2.5-pro",
+            "haiku": "gemini-2.5-flash",
+            "sonnet": "gemini-2.5-pro",
+            "opus": "gemini-2.5-pro"
+          }
+        }
+      },
+      "defaultApiFormat": "gemini_native",
+      "supportedApiFormats": [
+        "gemini_native"
+      ],
+      "needsApiKey": true,
+      "websiteUrl": "https://ai.google.dev",
+      "apiKeyUrl": "https://aistudio.google.com/apikey",
+      "featured": true
+    },
+    {
+      "id": "github-copilot",
+      "name": "GitHub Copilot",
+      "category": "official",
+      "apiFormats": {
+        "openai_compatible": {
+          "baseUrl": "https://api.githubcopilot.com",
+          "defaultModels": {
+            "main": "gpt-4o",
+            "haiku": "gpt-4o-mini",
+            "sonnet": "gpt-4o",
+            "opus": "o3"
+          }
+        }
+      },
+      "defaultApiFormat": "openai_compatible",
+      "supportedApiFormats": [
+        "openai_compatible"
+      ],
+      "needsApiKey": false,
+      "websiteUrl": "https://github.com/features/copilot"
+    },
+    {
+      "id": "deepseek",
+      "name": "DeepSeek",
+      "category": "official",
+      "apiFormats": {
+        "anthropic_compatible": {
+          "baseUrl": "https://api.deepseek.com/anthropic",
+          "defaultModels": {
+            "main": "deepseek-flash",
+            "haiku": "deepseek-flash",
+            "sonnet": "deepseek-flash",
+            "opus": "deepseek-v4-pro"
+          }
+        },
+        "openai_compatible": {
+          "baseUrl": "https://api.deepseek.com/v1",
+          "defaultModels": {
+            "main": "deepseek-flash",
+            "haiku": "deepseek-flash",
+            "sonnet": "deepseek-flash",
+            "opus": "deepseek-v4-pro"
+          }
+        },
+        "openai_responses": {
+          "baseUrl": "https://api.deepseek.com",
+          "defaultModels": {
+            "main": "deepseek-flash",
+            "haiku": "deepseek-flash",
+            "sonnet": "deepseek-flash",
+            "opus": "deepseek-flash"
+          }
+        }
+      },
+      "defaultApiFormat": "openai_compatible",
+      "supportedApiFormats": [
+        "openai_compatible",
+        "anthropic_compatible",
+        "openai_responses"
+      ],
+      "needsApiKey": true,
+      "websiteUrl": "https://platform.deepseek.com",
+      "apiKeyUrl": "https://platform.deepseek.com/api_keys",
+      "featured": true
+    },
+    {
+      "id": "zhipu",
+      "name": "智谱 GLM",
+      "category": "official",
+      "apiFormats": {
+        "anthropic_compatible": {
+          "baseUrl": "https://open.bigmodel.cn/api/anthropic",
+          "defaultModels": {
+            "main": "glm-4-plus",
+            "haiku": "glm-4-flash",
+            "sonnet": "glm-4-plus",
+            "opus": "glm-4-plus"
+          }
+        },
+        "openai_compatible": {
+          "baseUrl": "https://open.bigmodel.cn/api/paas/v4",
+          "defaultModels": {
+            "main": "glm-4-plus",
+            "haiku": "glm-4-flash",
+            "sonnet": "glm-4-plus",
+            "opus": "glm-4-plus"
+          }
+        }
+      },
+      "defaultApiFormat": "openai_compatible",
+      "supportedApiFormats": [
+        "openai_compatible",
+        "anthropic_compatible"
+      ],
+      "needsApiKey": true,
+      "websiteUrl": "https://open.bigmodel.cn",
+      "apiKeyUrl": "https://open.bigmodel.cn/usercenter/apikeys"
+    },
+    {
+      "id": "zhipu-overseas",
+      "name": "智谱海外",
+      "category": "official",
+      "apiFormats": {
+        "anthropic_compatible": {
+          "baseUrl": "https://api.z.ai/api/anthropic",
+          "defaultModels": {
+            "main": "glm-4-plus",
+            "haiku": "glm-4-flash",
+            "sonnet": "glm-4-plus",
+            "opus": "glm-4-plus"
+          }
+        },
+        "openai_compatible": {
+          "baseUrl": "https://api.z.ai/v1",
+          "defaultModels": {
+            "main": "glm-4-plus",
+            "haiku": "glm-4-flash",
+            "sonnet": "glm-4-plus",
+            "opus": "glm-4-plus"
+          }
+        }
+      },
+      "defaultApiFormat": "openai_compatible",
+      "supportedApiFormats": [
+        "openai_compatible",
+        "anthropic_compatible"
+      ],
+      "needsApiKey": true,
+      "websiteUrl": "https://z.ai"
+    },
+    {
+      "id": "bailian",
+      "name": "阿里云百炼",
+      "category": "official",
+      "apiFormats": {
+        "anthropic_compatible": {
+          "baseUrl": "https://dashscope.aliyuncs.com/apps/anthropic",
+          "defaultModels": {
+            "main": "qwen-max",
+            "haiku": "qwen-turbo",
+            "sonnet": "qwen-plus",
+            "opus": "qwen-max"
+          }
+        },
+        "openai_compatible": {
+          "baseUrl": "https://dashscope.aliyuncs.com/compatible-mode/v1",
+          "defaultModels": {
+            "main": "qwen-max",
+            "haiku": "qwen-turbo",
+            "sonnet": "qwen-plus",
+            "opus": "qwen-max"
+          }
+        }
+      },
+      "defaultApiFormat": "openai_compatible",
+      "supportedApiFormats": [
+        "openai_compatible",
+        "anthropic_compatible"
+      ],
+      "needsApiKey": true,
+      "websiteUrl": "https://bailian.console.aliyun.com",
+      "apiKeyUrl": "https://bailian.console.aliyun.com/#/api-key"
+    },
+    {
+      "id": "alibaba",
+      "name": "Alibaba Cloud",
+      "category": "official",
+      "apiFormats": {
+        "openai_compatible": {
+          "baseUrl": "https://dashscope-intl.aliyuncs.com/compatible-mode/v1",
+          "defaultModels": {
+            "main": "qwen3.7-max",
+            "haiku": "qwen-turbo",
+            "sonnet": "qwen3.7-max",
+            "opus": "qwen3.7-max"
+          }
+        }
+      },
+      "modelDefaultsByModel": {
+        "qwen3.7-max": {
+          "maxTokens": 65536,
+          "contextWindow": 1000000,
+          "toolCallSupported": true
+        }
+      },
+      "defaultApiFormat": "openai_compatible",
+      "supportedApiFormats": [
+        "openai_compatible"
+      ],
+      "needsApiKey": true,
+      "websiteUrl": "https://www.alibabacloud.com/help/en/model-studio",
+      "apiKeyUrl": "https://modelstudio.console.alibabacloud.com"
+    },
+    {
+      "id": "bailian-coding",
+      "name": "百炼 Coding Plan",
+      "category": "official",
+      "apiFormats": {
+        "anthropic_compatible": {
+          "baseUrl": "https://coding.dashscope.aliyuncs.com/apps/anthropic",
+          "defaultModels": {
+            "main": "qwen-max",
+            "haiku": "qwen-turbo",
+            "sonnet": "qwen-plus",
+            "opus": "qwen-max"
+          }
+        }
+      },
+      "defaultApiFormat": "anthropic_compatible",
+      "supportedApiFormats": [
+        "anthropic_compatible"
+      ],
+      "needsApiKey": true,
+      "websiteUrl": "https://bailian.console.aliyun.com"
+    },
+    {
+      "id": "kimi",
+      "name": "Kimi",
+      "category": "official",
+      "apiFormats": {
+        "anthropic_compatible": {
+          "baseUrl": "https://api.moonshot.cn/anthropic",
+          "defaultModels": {
+            "main": "kimi-latest",
+            "haiku": "kimi-latest",
+            "sonnet": "kimi-latest",
+            "opus": "kimi-latest"
+          }
+        },
+        "openai_compatible": {
+          "baseUrl": "https://api.moonshot.cn/v1",
+          "defaultModels": {
+            "main": "kimi-latest",
+            "haiku": "kimi-latest",
+            "sonnet": "kimi-latest",
+            "opus": "kimi-latest"
+          }
+        }
+      },
+      "defaultApiFormat": "openai_compatible",
+      "supportedApiFormats": [
+        "openai_compatible",
+        "anthropic_compatible"
+      ],
+      "needsApiKey": true,
+      "websiteUrl": "https://platform.moonshot.cn",
+      "apiKeyUrl": "https://platform.moonshot.cn/console/api-keys"
+    },
+    {
+      "id": "kimi-coding",
+      "name": "Kimi For Coding",
+      "category": "official",
+      "apiFormats": {
+        "anthropic_compatible": {
+          "baseUrl": "https://api.kimi.com/coding/",
+          "defaultModels": {
+            "main": "kimi-latest",
+            "haiku": "kimi-latest",
+            "sonnet": "kimi-latest",
+            "opus": "kimi-latest"
+          }
+        }
+      },
+      "defaultApiFormat": "anthropic_compatible",
+      "supportedApiFormats": [
+        "anthropic_compatible"
+      ],
+      "needsApiKey": true,
+      "websiteUrl": "https://platform.moonshot.cn"
+    },
+    {
+      "id": "stepfun",
+      "name": "阶跃星辰",
+      "category": "official",
+      "apiFormats": {
+        "anthropic_compatible": {
+          "baseUrl": "https://api.stepfun.com/step_plan",
+          "defaultModels": {
+            "main": "step-2-16k",
+            "haiku": "step-2-16k",
+            "sonnet": "step-2-16k",
+            "opus": "step-2-16k"
+          }
+        },
+        "openai_compatible": {
+          "baseUrl": "https://api.stepfun.com/step_plan/v1",
+          "defaultModels": {
+            "main": "step-2-16k",
+            "haiku": "step-2-16k",
+            "sonnet": "step-2-16k",
+            "opus": "step-2-16k"
+          }
+        }
+      },
+      "defaultApiFormat": "openai_compatible",
+      "supportedApiFormats": [
+        "openai_compatible",
+        "anthropic_compatible"
+      ],
+      "needsApiKey": true,
+      "websiteUrl": "https://platform.stepfun.com",
+      "apiKeyUrl": "https://platform.stepfun.com/apikey"
+    },
+    {
+      "id": "stepfun-overseas",
+      "name": "阶跃星辰海外",
+      "category": "official",
+      "apiFormats": {
+        "anthropic_compatible": {
+          "baseUrl": "https://api.stepfun.ai/step_plan",
+          "defaultModels": {
+            "main": "step-2-16k",
+            "haiku": "step-2-16k",
+            "sonnet": "step-2-16k",
+            "opus": "step-2-16k"
+          }
+        },
+        "openai_compatible": {
+          "baseUrl": "https://api.stepfun.ai/step_plan/v1",
+          "defaultModels": {
+            "main": "step-2-16k",
+            "haiku": "step-2-16k",
+            "sonnet": "step-2-16k",
+            "opus": "step-2-16k"
+          }
+        }
+      },
+      "defaultApiFormat": "openai_compatible",
+      "supportedApiFormats": [
+        "openai_compatible",
+        "anthropic_compatible"
+      ],
+      "needsApiKey": true,
+      "websiteUrl": "https://platform.stepfun.com"
+    },
+    {
+      "id": "volcengine",
+      "name": "火山方舟",
+      "category": "official",
+      "apiFormats": {
+        "openai_compatible": {
+          "baseUrl": "https://ark.cn-beijing.volces.com/api/v3",
+          "defaultModels": {
+            "main": "doubao-seed-1-6-250615",
+            "haiku": "doubao-seed-1-6-flash-250715",
+            "sonnet": "doubao-seed-1-6-250615",
+            "opus": "doubao-seed-1-6-thinking-250615"
+          }
+        },
+        "openai_responses": {
+          "baseUrl": "https://ark.cn-beijing.volces.com/api/v3",
+          "defaultModels": {
+            "main": "doubao-seed-1-6-250615",
+            "haiku": "doubao-seed-1-6-flash-250715",
+            "sonnet": "doubao-seed-1-6-250615",
+            "opus": "doubao-seed-1-6-thinking-250615"
+          }
+        }
+      },
+      "defaultApiFormat": "openai_compatible",
+      "supportedApiFormats": [
+        "openai_compatible",
+        "openai_responses"
+      ],
+      "needsApiKey": true,
+      "websiteUrl": "https://console.volcengine.com/ark",
+      "apiKeyUrl": "https://console.volcengine.com/ark/region:cn-beijing/apiKey"
+    },
+    {
+      "id": "minimax",
+      "name": "MiniMax",
+      "category": "official",
+      "apiFormats": {
+        "anthropic_compatible": {
+          "baseUrl": "https://api.minimaxi.com/anthropic",
+          "defaultModels": {
+            "main": "MiniMax-M1",
+            "haiku": "MiniMax-Text-01",
+            "sonnet": "MiniMax-M1",
+            "opus": "MiniMax-M1"
+          }
+        },
+        "openai_compatible": {
+          "baseUrl": "https://api.minimaxi.com/v1",
+          "defaultModels": {
+            "main": "MiniMax-M1",
+            "haiku": "MiniMax-Text-01",
+            "sonnet": "MiniMax-M1",
+            "opus": "MiniMax-M1"
+          }
+        }
+      },
+      "defaultApiFormat": "openai_compatible",
+      "supportedApiFormats": [
+        "openai_compatible",
+        "anthropic_compatible"
+      ],
+      "needsApiKey": true,
+      "websiteUrl": "https://platform.minimaxi.com",
+      "apiKeyUrl": "https://platform.minimaxi.com/api-keys"
+    },
+    {
+      "id": "minimax-overseas",
+      "name": "MiniMax 海外",
+      "category": "official",
+      "apiFormats": {
+        "anthropic_compatible": {
+          "baseUrl": "https://api.minimax.io/anthropic",
+          "defaultModels": {
+            "main": "MiniMax-M1",
+            "haiku": "MiniMax-Text-01",
+            "sonnet": "MiniMax-M1",
+            "opus": "MiniMax-M1"
+          }
+        },
+        "openai_compatible": {
+          "baseUrl": "https://api.minimax.io/v1",
+          "defaultModels": {
+            "main": "MiniMax-M1",
+            "haiku": "MiniMax-Text-01",
+            "sonnet": "MiniMax-M1",
+            "opus": "MiniMax-M1"
+          }
+        }
+      },
+      "defaultApiFormat": "openai_compatible",
+      "supportedApiFormats": [
+        "openai_compatible",
+        "anthropic_compatible"
+      ],
+      "needsApiKey": true,
+      "websiteUrl": "https://platform.minimax.io"
+    },
+    {
+      "id": "xiaomi-mimo",
+      "name": "Xiaomi MiMo",
+      "category": "official",
+      "apiFormats": {
+        "anthropic_compatible": {
+          "baseUrl": "https://api.xiaomimimo.com/anthropic",
+          "defaultModels": {
+            "main": "MiMo-7B-RL",
+            "haiku": "MiMo-7B-RL",
+            "sonnet": "MiMo-7B-RL",
+            "opus": "MiMo-7B-RL"
+          }
+        },
+        "openai_compatible": {
+          "baseUrl": "https://api.xiaomimimo.com/v1",
+          "defaultModels": {
+            "main": "MiMo-7B-RL",
+            "haiku": "MiMo-7B-RL",
+            "sonnet": "MiMo-7B-RL",
+            "opus": "MiMo-7B-RL"
+          }
+        }
+      },
+      "defaultApiFormat": "openai_compatible",
+      "supportedApiFormats": [
+        "openai_compatible",
+        "anthropic_compatible"
+      ],
+      "needsApiKey": true,
+      "websiteUrl": "https://xiaomimimo.com"
+    },
+    {
+      "id": "longcat",
+      "name": "美团 Longcat",
+      "category": "official",
+      "apiFormats": {
+        "anthropic_compatible": {
+          "baseUrl": "https://api.longcat.chat/anthropic",
+          "defaultModels": {
+            "main": "longcat-v1",
+            "haiku": "longcat-v1",
+            "sonnet": "longcat-v1",
+            "opus": "longcat-v1"
+          }
+        },
+        "openai_compatible": {
+          "baseUrl": "https://api.longcat.chat/openai/v1",
+          "defaultModels": {
+            "main": "longcat-v1",
+            "haiku": "longcat-v1",
+            "sonnet": "longcat-v1",
+            "opus": "longcat-v1"
+          }
+        }
+      },
+      "defaultApiFormat": "openai_compatible",
+      "supportedApiFormats": [
+        "openai_compatible",
+        "anthropic_compatible"
+      ],
+      "needsApiKey": true,
+      "websiteUrl": "https://longcat.chat"
+    },
+    {
+      "id": "xfyun",
+      "name": "讯飞星辰",
+      "category": "official",
+      "apiFormats": {
+        "anthropic_compatible": {
+          "baseUrl": "https://maas-coding-api.cn-huabei-1.xf-yun.com/anthropic",
+          "defaultModels": {
+            "main": "4.0Ultra",
+            "haiku": "generalv3.5",
+            "sonnet": "4.0Ultra",
+            "opus": "4.0Ultra"
+          }
+        },
+        "openai_compatible": {
+          "baseUrl": "https://maas-coding-api.cn-huabei-1.xf-yun.com/v2",
+          "defaultModels": {
+            "main": "4.0Ultra",
+            "haiku": "generalv3.5",
+            "sonnet": "4.0Ultra",
+            "opus": "4.0Ultra"
+          }
+        }
+      },
+      "defaultApiFormat": "openai_compatible",
+      "supportedApiFormats": [
+        "openai_compatible",
+        "anthropic_compatible"
+      ],
+      "needsApiKey": true,
+      "websiteUrl": "https://xingchen.xfyun.cn"
+    },
+    {
+      "id": "nvidia",
+      "name": "Nvidia",
+      "category": "official",
+      "apiFormats": {
+        "openai_compatible": {
+          "baseUrl": "https://integrate.api.nvidia.com/v1",
+          "defaultModels": {
+            "main": "meta/llama-3.1-405b-instruct",
+            "haiku": "meta/llama-3.1-8b-instruct",
+            "sonnet": "meta/llama-3.1-405b-instruct",
+            "opus": "meta/llama-3.1-405b-instruct"
+          }
+        }
+      },
+      "defaultApiFormat": "openai_compatible",
+      "supportedApiFormats": [
+        "openai_compatible"
+      ],
+      "needsApiKey": true,
+      "websiteUrl": "https://build.nvidia.com",
+      "apiKeyUrl": "https://build.nvidia.com/api-key"
+    },
+    {
+      "id": "groq",
+      "name": "Groq",
+      "category": "official",
+      "apiFormats": {
+        "openai_compatible": {
+          "baseUrl": "https://api.groq.com/openai/v1",
+          "defaultModels": {
+            "main": "llama-3.3-70b-versatile",
+            "haiku": "llama-3.1-8b-instant",
+            "sonnet": "llama-3.3-70b-versatile",
+            "opus": "llama-3.3-70b-versatile"
+          }
+        }
+      },
+      "defaultApiFormat": "openai_compatible",
+      "supportedApiFormats": [
+        "openai_compatible"
+      ],
+      "needsApiKey": true,
+      "websiteUrl": "https://console.groq.com",
+      "apiKeyUrl": "https://console.groq.com/keys"
+    },
+    {
+      "id": "opencode-go",
+      "name": "OpenCode Go",
+      "category": "official",
+      "apiFormats": {
+        "anthropic_compatible": {
+          "baseUrl": "https://opencode.ai/zen/go/v1",
+          "defaultModels": {
+            "main": "minimax-m3",
+            "haiku": "minimax-m2.5",
+            "sonnet": "qwen3.7-max",
+            "opus": "minimax-m3"
+          }
+        },
+        "openai_compatible": {
+          "baseUrl": "https://opencode.ai/zen/go/v1",
+          "defaultModels": {
+            "main": "auto",
+            "haiku": "auto",
+            "sonnet": "auto",
+            "opus": "auto"
+          }
+        }
+      },
+      "defaultApiFormat": "openai_compatible",
+      "supportedApiFormats": [
+        "openai_compatible",
+        "anthropic_compatible"
+      ],
+      "needsApiKey": true,
+      "websiteUrl": "https://opencode.ai"
+    },
+    {
+      "id": "openrouter",
+      "name": "OpenRouter",
+      "category": "aggregator",
+      "apiFormats": {
+        "anthropic_compatible": {
+          "baseUrl": "https://openrouter.ai/api",
+          "defaultModels": {
+            "main": "anthropic/claude-sonnet-4-20250514",
+            "haiku": "anthropic/claude-haiku-4-5-20251001",
+            "sonnet": "anthropic/claude-sonnet-4-20250514",
+            "opus": "anthropic/claude-opus-4-20250514"
+          }
+        },
+        "openai_compatible": {
+          "baseUrl": "https://openrouter.ai/api/v1",
+          "defaultModels": {
+            "main": "anthropic/claude-sonnet-4-20250514",
+            "haiku": "anthropic/claude-haiku-4-5-20251001",
+            "sonnet": "anthropic/claude-sonnet-4-20250514",
+            "opus": "anthropic/claude-opus-4-20250514"
+          }
+        }
+      },
+      "defaultApiFormat": "openai_compatible",
+      "supportedApiFormats": [
+        "openai_compatible",
+        "anthropic_compatible"
+      ],
+      "needsApiKey": true,
+      "websiteUrl": "https://openrouter.ai",
+      "apiKeyUrl": "https://openrouter.ai/settings/keys",
+      "featured": true
+    },
+    {
+      "id": "siliconflow",
+      "name": "硅基流动",
+      "category": "aggregator",
+      "apiFormats": {
+        "anthropic_compatible": {
+          "baseUrl": "https://api.siliconflow.cn/anthropic",
+          "defaultModels": {
+            "main": "deepseek-ai/DeepSeek-V3",
+            "haiku": "deepseek-ai/DeepSeek-V3",
+            "sonnet": "deepseek-ai/DeepSeek-V3",
+            "opus": "deepseek-ai/DeepSeek-R1"
+          }
+        },
+        "openai_compatible": {
+          "baseUrl": "https://api.siliconflow.cn/v1",
+          "defaultModels": {
+            "main": "deepseek-ai/DeepSeek-V3",
+            "haiku": "deepseek-ai/DeepSeek-V3",
+            "sonnet": "deepseek-ai/DeepSeek-V3",
+            "opus": "deepseek-ai/DeepSeek-R1"
+          }
+        }
+      },
+      "defaultApiFormat": "openai_compatible",
+      "supportedApiFormats": [
+        "openai_compatible",
+        "anthropic_compatible"
+      ],
+      "needsApiKey": true,
+      "websiteUrl": "https://cloud.siliconflow.cn",
+      "apiKeyUrl": "https://cloud.siliconflow.cn/account/ak"
+    },
+    {
+      "id": "siliconflow-overseas",
+      "name": "硅基流动海外",
+      "category": "aggregator",
+      "apiFormats": {
+        "anthropic_compatible": {
+          "baseUrl": "https://api.siliconflow.com/anthropic",
+          "defaultModels": {
+            "main": "deepseek-ai/DeepSeek-V3",
+            "haiku": "deepseek-ai/DeepSeek-V3",
+            "sonnet": "deepseek-ai/DeepSeek-V3",
+            "opus": "deepseek-ai/DeepSeek-R1"
+          }
+        },
+        "openai_compatible": {
+          "baseUrl": "https://api.siliconflow.com/v1",
+          "defaultModels": {
+            "main": "deepseek-ai/DeepSeek-V3",
+            "haiku": "deepseek-ai/DeepSeek-V3",
+            "sonnet": "deepseek-ai/DeepSeek-V3",
+            "opus": "deepseek-ai/DeepSeek-R1"
+          }
+        }
+      },
+      "defaultApiFormat": "openai_compatible",
+      "supportedApiFormats": [
+        "openai_compatible",
+        "anthropic_compatible"
+      ],
+      "needsApiKey": true,
+      "websiteUrl": "https://siliconflow.com"
+    },
+    {
+      "id": "aihubmix",
+      "name": "AiHubMix",
+      "category": "aggregator",
+      "apiFormats": {
+        "openai_compatible": {
+          "baseUrl": "https://open.aihubmix.com/v1",
+          "defaultModels": {
+            "main": "claude-sonnet-4-20250514",
+            "haiku": "claude-haiku-4-5-20251001",
+            "sonnet": "claude-sonnet-4-20250514",
+            "opus": "claude-opus-4-20250514"
+          }
+        }
+      },
+      "defaultApiFormat": "openai_compatible",
+      "supportedApiFormats": [
+        "openai_compatible"
+      ],
+      "needsApiKey": true,
+      "websiteUrl": "https://aihubmix.com"
+    },
+    {
+      "id": "vllm",
+      "name": "vLLM",
+      "category": "local",
+      "apiFormats": {
+        "openai_compatible": {
+          "baseUrl": "http://127.0.0.1:8000/v1",
+          "defaultModels": {
+            "main": "minicpm-v4.6",
+            "haiku": "minicpm-v4.6",
+            "sonnet": "minicpm-v4.6",
+            "opus": "minicpm-v4.6"
+          }
+        }
+      },
+      "modelDefaults": {
+        "textEnabled": true,
+        "imageEnabled": true,
+        "videoEnabled": true
+      },
+      "defaultApiFormat": "openai_compatible",
+      "supportedApiFormats": [
+        "openai_compatible"
+      ],
+      "needsApiKey": true,
+      "websiteUrl": "https://docs.vllm.ai"
+    },
+    {
+      "id": "lmstudio",
+      "name": "LM Studio",
+      "category": "local",
+      "apiFormats": {
+        "anthropic_compatible": {
+          "baseUrl": "http://localhost:1234",
+          "defaultModels": {
+            "main": "default",
+            "haiku": "default",
+            "sonnet": "default",
+            "opus": "default"
+          }
+        },
+        "openai_compatible": {
+          "baseUrl": "http://localhost:1234/v1",
+          "defaultModels": {
+            "main": "default",
+            "haiku": "default",
+            "sonnet": "default",
+            "opus": "default"
+          }
+        }
+      },
+      "defaultApiFormat": "openai_compatible",
+      "supportedApiFormats": [
+        "openai_compatible",
+        "anthropic_compatible"
+      ],
+      "needsApiKey": false,
+      "websiteUrl": "https://lmstudio.ai"
+    },
+    {
+      "id": "ollama",
+      "name": "Ollama",
+      "category": "local",
+      "apiFormats": {
+        "anthropic_compatible": {
+          "baseUrl": "http://localhost:11434",
+          "defaultModels": {
+            "main": "qwen3:8b",
+            "haiku": "qwen3:8b",
+            "sonnet": "qwen3:8b",
+            "opus": "qwen3:32b"
+          }
+        },
+        "openai_compatible": {
+          "baseUrl": "http://localhost:11434/v1",
+          "defaultModels": {
+            "main": "qwen3:8b",
+            "haiku": "qwen3:8b",
+            "sonnet": "qwen3:8b",
+            "opus": "qwen3:32b"
+          }
+        }
+      },
+      "defaultApiFormat": "openai_compatible",
+      "supportedApiFormats": [
+        "openai_compatible",
+        "anthropic_compatible"
+      ],
+      "needsApiKey": false,
+      "websiteUrl": "https://ollama.com"
+    },
+    {
+      "id": "custom",
+      "name": "自定义",
+      "category": "custom",
+      "apiFormats": {
+        "openai_compatible": {
+          "baseUrl": "",
+          "baseUrlPlaceholder": "https://api.example.com/v1"
+        },
+        "anthropic_compatible": {
+          "baseUrl": "",
+          "baseUrlPlaceholder": "https://api.example.com"
+        },
+        "openai_responses": {
+          "baseUrl": "",
+          "baseUrlPlaceholder": "https://api.example.com/v1"
+        },
+        "gemini_native": {
+          "baseUrl": "",
+          "baseUrlPlaceholder": "https://generativelanguage.googleapis.com/v1beta"
+        }
+      },
+      "defaultApiFormat": "openai_compatible",
+      "supportedApiFormats": [
+        "openai_compatible",
+        "anthropic_compatible",
+        "openai_responses",
+        "gemini_native"
+      ],
+      "needsApiKey": true,
+      "websiteUrl": ""
+    }
+  ],
+  "providerGroups": [
+    [
+      "openai",
+      "codex",
+      "openai-codex",
+      "codex-cli"
+    ],
+    [
+      "anthropic",
+      "claude",
+      "claude-cli"
+    ],
+    [
+      "google",
+      "gemini"
+    ],
+    [
+      "alibaba",
+      "alibaba-cn",
+      "qwen",
+      "bailian",
+      "bailian-coding",
+      "dashscope"
+    ],
+    [
+      "moonshotai",
+      "moonshot",
+      "kimi",
+      "kimi-coding"
+    ],
+    [
+      "zhipuai",
+      "zai",
+      "zhipu",
+      "zhipu-overseas"
+    ],
+    [
+      "xai",
+      "x-ai"
+    ],
+    [
+      "qianfan",
+      "baidu"
+    ],
+    [
+      "minimax",
+      "minimax-coding-plan",
+      "minimax-overseas"
+    ],
+    [
+      "tencent-tokenhub",
+      "tencent"
+    ],
+    [
+      "xiaomi",
+      "xiaomi-mimo"
+    ],
+    [
+      "stepfun",
+      "stepfun-overseas"
+    ]
+  ]
+}

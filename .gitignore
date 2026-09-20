@@ -1,0 +1,4 @@
+dist/
+publish/
+*.pem
+!public-key.pem
