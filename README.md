@@ -1,6 +1,6 @@
 # OpenSShan 供应商目录
 
-本目录可以整体复制为独立 Git 仓库，不依赖 OpenSShan 源码或 npm 安装。GitHub 维护源文件，Gitee 接收同一份已签名发布文件。当前没有创建线上仓库，也没有配置发布地址或签名公钥。
+本目录可以整体复制为独立 Git 仓库，不依赖 OpenSShan 源码或 npm 安装。GitHub 维护源文件，Gitee 接收同一份已签名发布文件。已配置 GitHub 主仓库 `wdmywm3/opensshan-provider-catalog` 和 Gitee 镜像 `wdmywm/opensshan-provider-catalog`，应用发布地址与受信任公钥保存在 `distribution.json`。
 
 ## 文件与维护
 
@@ -25,7 +25,7 @@
 3. 在安全的本机目录运行 `node keygen.cjs`。把 `signing-private.pem` 内容保存到 GitHub Actions secret `CATALOG_SIGNING_KEY`；私钥不要提交到 Git。公钥可公开。
 4. 如需 Gitee 镜像，设置 GitHub Actions variable `GITEE_REPOSITORY`，值为 `用户名/仓库名`；设置 secrets `GITEE_USERNAME` 和 `GITEE_TOKEN`。令牌需要该仓库的写入权限。
 5. 推送 `main` 或手动运行发布工作流。发布分支是 `catalog`，文件是 `directory.json`。镜像步骤复制签名后的原文件，不重新签名；镜像失败会令工作流失败，可重跑。
-6. 在应用随包提供的 `distribution.json` 配置下列两个实际地址和公钥，再发布一次支持在线目录的应用版本。
+6. 新部署时，在应用随包提供的 `distribution.json` 配置实际地址和公钥，再发布一次支持在线目录的应用版本。本仓库已经填写当前部署的地址和公钥。
 
 ```json
 {
@@ -53,6 +53,6 @@
 
 回退会暂停自动同步，避免下一次定时检查立即覆盖回退结果。再次手动更新会恢复同步；防降级记录仍然保留。
 
-## 本地交付范围
+## 验证范围
 
-可以离线校验目录并使用临时密钥验证签名发布。实际 GitHub Actions 执行、Gitee 推送和供应商账号调用，需要仓库、发布密钥及相应账号配置后另行验证。
+已验证 GitHub Actions 签名发布、Gitee 自动推送，以及两端匿名下载、签名和文件哈希一致性。应用下载链路的联网检查也已通过；尚未验证各供应商账号调用或生成新版 Windows 安装包。
